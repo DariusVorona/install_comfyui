@@ -1,66 +1,75 @@
-ComfyUI v2.1.0 Toolkit for Linux
-
-This repository contains shell scripts to install and run ComfyUI on Linux systems. These scripts are designed to streamline the installation and execution process, ensuring a smooth user experience.
-Files
-
+Script Descriptions
 install_comfyui_v2.1.0.sh
 
-Purpose: Automates the installation process for ComfyUI on Linux.
-Features:
+This script automates the installation of ComfyUI version 2.1.0 on Linux systems, managing system dependencies, repository setup, and virtual environment configuration.
 
-    Linux-Specific Installation:
-        Compatible with common Linux distributions.
-        Leverages system tools and package managers for smooth integration.
-    Dependency Management:
-        Automatically identifies and installs required dependencies (e.g., Python libraries, system packages).
-    Version Locking:
-        Ensures that all installed components are compatible with Comfyui 
+Key Features:
+
+    Dependency Installation:
+        Checks for the presence of required packages: python3, python3-venv, python3-pip, git, and wget.
+        Installs missing packages via the system package manager (requires sudo or root access).
+
+    Virtual Environment Setup:
+        Creates a Python virtual environment (venv) within the ComfyUI directory.
+        Activates the virtual environment for dependency isolation.
+
+    Dependency Installation:
+        Upgrades pip to the latest version within the virtual environment.
+        Installs PyTorch (CUDA-enabled version) using the PyTorch-specific index URL.
+        Installs additional dependencies from the requirements.txt file in the repository.
+
     Error Handling:
-        Provides clear error messages to guide users through troubleshooting.
+        Stops execution (set -e) if any step fails, ensuring no incomplete installations.
 
-Usage:
+    Final Output:
+        Provides confirmation of successful installation and guidance on running the application using the run_comfyui_v2.1.0.sh script.
+
+Usage: Run this script with execute permissions:
 
 chmod +x install_comfyui_v2.1.0.sh
 ./install_comfyui_v2.1.0.sh
 
 run_comfyui_v2.1.0.sh
 
-Purpose: Launches ComfyUI after installation, preparing the environment and starting the application.
-Features:
+Key Features:
 
-    Environment Setup:
-        Configures environment variables and runtime requirements specific to Linux.
-    Ease of Use:
-        A single command to start ComfyUI with minimal user intervention.
-    Error Handling:
-        Notifies users of missing dependencies or configuration issues.
+    Environment Verification:
+        Ensures the script is executed in the correct directory (where main.py is located).
+        Validates the existence of a Python virtual environment (venv).
 
+    Command-Line Configuration:
+        Accepts various options to customize runtime behavior:
+            -i <ip_address>: Set the server's IP address (default: 127.0.0.1).
+            -p <port>: Specify the server port (default: 8188).
+            -o <output_dir>: Set the directory for output files (default: ./output).
+            -g <gpu_id>: Restrict execution to a specific GPU (default: all GPUs).
+            -m: Automatically download a default Stable Diffusion model.
+            -x: Enable debug mode for more verbose logging.
+            -h: Display a help menu with usage details.
 
-Usage:
+    Model Management:
+        Downloads the Stable Diffusion v1.5 model into models/checkpoints if the -m option is specified.
+        Ensures compatibility with ComfyUI requirements.
+
+    GPU Configuration:
+        Sets the CUDA_VISIBLE_DEVICES environment variable if a GPU ID is provided, enabling multi-GPU systems to target specific hardware.
+
+    Output Directory Handling:
+        Creates the specified output directory (-o) if it does not exist, ensuring no interruptions during runtime.
+
+    Debug Mode:
+        Enables verbose logging and additional runtime information for troubleshooting purposes when the -x option is specified.
+
+    Execution:
+        Starts the ComfyUI application using the Python virtual environment.
+        Runs with or without debug mode based on user preferences.
+
+Usage: Run this script with execute permissions:
 
 chmod +x run_comfyui_v2.1.0.sh
-./run_comfyui_v2.1.0.sh
+./run_comfyui_v2.1.0.sh [options]
 
+Example: To launch the application on a custom IP and port with debug mode enabled:
 
-Installation Guide
-
-    Clone this repository:
-
-
-Run the installation script:
-
-./install_comfyui_v2.1.0.sh
-
-Start ComfyUI using the runtime script:
-
-    ./run_comfyui_v2.1.0.sh
-
-Contribution
-
-Contributions to enhance these scripts are welcome. If you'd like to contribute:
-
-    Fork the repository.
-    Create a new branch: git checkout -b feature-branch-name.
-    Submit a pull request.
-
+./run_comfyui_v2.1.0.sh -i 192.168.1.100 -p 8080 -x
 
