@@ -1,6 +1,6 @@
 ComfyUI v2.1.0 Toolkit for Linux
 
-This repository contains shell scripts to install and run ComfyUI version 2.1.0 on Linux systems. These scripts are designed to streamline the installation and execution process, ensuring a smooth user experience.
+This repository contains shell scripts to install and run ComfyUI on Linux systems. These scripts are designed to streamline the installation and execution process, ensuring a smooth user experience.
 Files
 install_comfyui_v2.1.0.sh
 
@@ -13,7 +13,7 @@ Features:
     Dependency Management:
         Automatically identifies and installs required dependencies (e.g., Python libraries, system packages).
     Version Locking:
-        Ensures that all installed components are compatible with ComfyUI v2.1.0.
+        Ensures that all installed components are compatible with Comfyui 
     Error Handling:
         Provides clear error messages to guide users through troubleshooting.
 
@@ -33,8 +33,7 @@ Features:
         A single command to start ComfyUI with minimal user intervention.
     Error Handling:
         Notifies users of missing dependencies or configuration issues.
-    Version Specific:
-        Optimized for ComfyUI v2.1.0 to ensure consistent behavior.
+
 
 Usage:
 
