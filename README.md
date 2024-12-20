@@ -1,7 +1,7 @@
 Script Descriptions
 install_comfyui_v2.1.0.sh
 
-This script automates the installation of ComfyUI version 2.1.0 on Linux systems, managing system dependencies, repository setup, and virtual environment configuration.
+This script automates the installation of ComfyUI version on Linux systems, managing system dependencies, repository setup, and virtual environment configuration.
 
 Key Features:
 
