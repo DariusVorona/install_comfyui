@@ -2,6 +2,7 @@ ComfyUI v2.1.0 Toolkit for Linux
 
 This repository contains shell scripts to install and run ComfyUI on Linux systems. These scripts are designed to streamline the installation and execution process, ensuring a smooth user experience.
 Files
+
 install_comfyui_v2.1.0.sh
 
 Purpose: Automates the installation process for ComfyUI on Linux.
